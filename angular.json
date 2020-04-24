@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "NotesApp"
+    }
+  },
+  "defaultProject": "NotesApp",
+  "cli": {
+    "analytics": "8370a253-51b0-4dbe-86aa-2aa18ebc8689"
+  }
 }
