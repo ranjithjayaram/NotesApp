@@ -1,5 +1,36 @@
 .header{
     background-color: #efdfbf;
+    height: 70px;
+    width: 100%; 
+}
+.searchPanel{
+    padding: 10px;
+    height: 100%;
+}
+.searchBox{
+    width: 85%;
+    height: 100%;
+}
+.searchicon{
+    color: #b5b1b1;
+    font-size: 36px;
+    position: absolute;
+    top: 15px;
+    display: block;
+}
+.controls{
+    height: 70px;
+}
+.controlbox{
+    margin: 10px 40px 5px 20px;
+    background-color: white;
     height: 40px;
-    margin: 15px;  
+    width: 8%;
+    position: relative;
+    left: 20%;
+}
+.iconcontrols{
+    position: absolute;
+    left: 30%;
+    top: 20%;
 }
