@@ -1,0 +1,36 @@
+.preview{
+    height: 90%;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}
+.note{
+    height: 90%;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}
+.customNote{
+    margin: 2px;
+    width: 100%;
+    border: none;
+    background-color: unset;
+    min-height: 200px;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+.headerNote{
+    border: 2px;
+    border-style: solid;
+    border-color: #dadada;
+    padding: 10px;
+    height: 15%;
+    text-transform:capitalize;
+}
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    font-size: 20px;
+ }

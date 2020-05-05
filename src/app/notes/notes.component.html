@@ -1,1 +1,13 @@
-<p>notes works!</p>
+<div class="content"  fxLayout="row" fxLayout.xs="row" fxFlexFill>
+
+    <div fxFlex="35" class="preview" fxFlex.xs="50">
+        <div class="headerNote" *ngFor="let note of Notes" (click)="selectCurrentNote(note)">
+            <p class="text" data-placeholder="New Note">{{note.content }}</p>
+        </div>
+    </div>
+    <div fxFlex="65" class="note" fxFlex.xs="50">
+        <div class="md-form">
+            <textarea type="text" id="notesArea"[(ngModel)]='currentNote.content' class="customNote"></textarea>
+          </div>
+    </div>
+</div>

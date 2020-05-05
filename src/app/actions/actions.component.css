@@ -1,3 +1,7 @@
+.content{
+    min-height: 0px !important;
+    height: 70px !important;
+}
 .header{
     background-color: #efdfbf;
     height: 70px;
@@ -27,7 +31,6 @@
     height: 40px;
     width: 8%;
     position: relative;
-    left: 20%;
 }
 .iconcontrols{
     position: absolute;
