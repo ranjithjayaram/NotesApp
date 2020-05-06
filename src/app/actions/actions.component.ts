@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../services/notes.service';
-
+import {MatSnackBar } from '@angular/material/snack-bar'
 @Component({
   selector: 'app-actions',
   templateUrl: './actions.component.html',
@@ -8,7 +8,7 @@ import { NotesService } from '../services/notes.service';
 })
 export class ActionsComponent implements OnInit {
 
-  constructor(private notesService:NotesService) { }
+  constructor(private notesService:NotesService, private snackbar:MatSnackBar) { }
   public Notes:any=[];
   public currentNote:any={};
   ngOnInit(): void {
@@ -21,17 +21,30 @@ export class ActionsComponent implements OnInit {
       this.deleteNote();
     }
     this.currentNote={};
-   // this.currentNote.id= this.createRandomId();
     this.notesService.createNewNote(this.currentNote);
   }
   saveNote(){
+    this.snackbar.open('Note Saved', '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass:'custom-class-save'
+    });
+    
     this.notesService.saveNote(this.currentNote);
   }
   
-  editNote(){
-    console.log(this.currentNote);
-  }
   deleteNote(){
+    this.snackbar.open('Note Removed', '', {
+      duration: 3000,
+      verticalPosition: 'top',
+      panelClass:'custom-class-delete'
+    });
     this.notesService.removeNote();
+  }
+  toggle(){
+    this.notesService.toggleService();
+  }
+  search(searchtext){
+    this.notesService.search(searchtext)
   }
 }

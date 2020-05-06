@@ -9,6 +9,8 @@ export class NotesComponent implements OnInit {
   public currentNote:any={};
   public Notes=[];
   public SelectedNote:any={}
+  public toggleStatus:boolean=true;
+  public currentTime;
   constructor(private notesService:NotesService ) { }
   
   ngOnInit(): void {
@@ -23,6 +25,13 @@ export class NotesComponent implements OnInit {
     this.notesService.currentNote.subscribe(note=>{
       this.currentNote= note;
     })
+    this.notesService.toggleobj.subscribe(toggle=>{
+      this.toggleStatus= toggle;
+    })
+    this.currentTime=new Date();
+    setInterval(()=> {
+      this.currentTime=new Date();},30000); 
+
   }
   startNewNote(){
     this.currentNote={};

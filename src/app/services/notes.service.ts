@@ -9,6 +9,9 @@ public Notes = new Subject<any>();
 public currentNote= new Subject<any>();
 public NotesObject:Array<any>=[];
 public selectedNote:any=[];
+private toggle:boolean=true;
+public toggleobj= new Subject<boolean>();
+
 //public Notes=[];
   constructor() {
     this.NotesObject=this.getAllNotes();
@@ -19,7 +22,6 @@ public selectedNote:any=[];
     this.saveNote(data);
   }
   saveNote(data){
-    console.log("this fn"+data)
   if(data.id == undefined){
    data.id= this.createRandomId();
    if(this.NotesObject==null){
@@ -74,5 +76,13 @@ removeNote(){
   this.currentNote.next(data);
   localStorage.setItem('Notes', JSON.stringify(this.NotesObject));
   }
+}
+
+toggleService(){
+  this.toggle= !this.toggle;
+  this.toggleobj.next(this.toggle);
+}
+search(text){
+  return ;
 }
 }
