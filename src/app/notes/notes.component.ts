@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NotesService } from '../services/notes.service';
 @Component({
   selector: 'app-notes',
@@ -11,7 +11,7 @@ export class NotesComponent implements OnInit {
   public SelectedNote:any={}
   public toggleStatus:boolean=true;
   public currentTime;
-  constructor(private notesService:NotesService ) { }
+  constructor(private notesService:NotesService,private cdr: ChangeDetectorRef ) { }
   
   ngOnInit(): void {
     this.Notes=this.notesService.getAllNotes();
@@ -19,8 +19,11 @@ export class NotesComponent implements OnInit {
       if(this.Notes==null){
         this.Notes=[];
       }
-      this.Notes = note.reverse();
-      
+      this.Notes = note;
+      this.notesService.selectedNoteObject.subscribe(note=>{
+        this.SelectedNote=note;
+        this.cdr.markForCheck();
+      })
     })
     this.notesService.currentNote.subscribe(note=>{
       this.currentNote= note;
@@ -30,11 +33,11 @@ export class NotesComponent implements OnInit {
     })
     this.currentTime=new Date();
     setInterval(()=> {
-      this.currentTime=new Date();},30000); 
+      this.currentTime=new Date()},30000); 
 
   }
   startNewNote(){
-    this.currentNote={};
+    this.currentNote={};  
   }
   saveContent(){
     this.notesService.saveNote(this.currentNote);

@@ -9,6 +9,7 @@ public Notes = new Subject<any>();
 public currentNote= new Subject<any>();
 public NotesObject:Array<any>=[];
 public selectedNote:any=[];
+public selectedNoteObject= new Subject<any>();
 private toggle:boolean=true;
 public toggleobj= new Subject<boolean>();
 
@@ -20,13 +21,16 @@ public toggleobj= new Subject<boolean>();
   createNewNote(data){
     this.currentNote.next(data);
     this.saveNote(data);
+    if(data.id == undefined){
+      data.id= this.createRandomId();
+    }
+    this.setSelectedNote(data);
   }
   saveNote(data){
-  if(data.id == undefined){
-   data.id= this.createRandomId();
+    if(data.id == undefined){
    if(this.NotesObject==null){
     this.NotesObject=[];
-  }
+    }
     
     this.NotesObject.push(data);
     this.Notes.next(this.NotesObject);
@@ -66,11 +70,18 @@ createRandomId(){
 }
 
 setSelectedNote(note){
+  if(!note){
+    note=[];
+  }
   this.selectedNote=note;
+  this.selectedNoteObject.next(note);
 }
-removeNote(){
+removeNote(note){ 
   if(this.NotesObject){
-    this.NotesObject =this.NotesObject.filter(item => item.id != this.selectedNote.id);
+  this.NotesObject =this.NotesObject.filter(item => item.id != note.id);
+  if(note.id ==this.selectedNote.id){
+    this.setSelectedNote(this.NotesObject[0])
+  }
   this.Notes.next(this.NotesObject);
   let data={};
   this.currentNote.next(data);

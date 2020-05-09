@@ -26,6 +26,14 @@ input:focus, textarea:focus, select:focus{
     height: 15%;
     text-transform:capitalize;
 }
+.headerNote-selected{
+    border: 2px;
+    border-style: solid;
+    padding: 10px;
+    height: 15%;
+    text-transform:capitalize;
+    border-color: #a78282 ;
+}
 .text {
     overflow: hidden;
     text-overflow: ellipsis;

@@ -1,7 +1,8 @@
 <div class="content"  fxLayout="row" fxLayout.xs="row" fxFlexFill>
 
     <div *ngIf="toggleStatus" fxFlex="35" class="preview" fxFlex.xs="50">
-        <div class="headerNote" *ngFor="let note of Notes" (click)="selectCurrentNote(note)">
+        <div class="headerNote" *ngFor="let note of Notes" [ngClass]="{'headerNote-selected': note.id==SelectedNote.id, 'headerNote': note.id!=SelectedNote.id}" (click)="selectCurrentNote(note)">
+            {{note.id}}
             <p class="text" data-placeholder="New Note">{{note.content }}</p>
         </div>
     </div>
