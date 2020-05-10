@@ -1,9 +1,11 @@
 <div class="content"  fxLayout="row" fxLayout.xs="row" fxFlexFill>
 
     <div *ngIf="toggleStatus" fxFlex="35" class="preview" fxFlex.xs="50">
-        <div class="headerNote" *ngFor="let note of Notes" [ngClass]="{'headerNote-selected': note.id==SelectedNote.id, 'headerNote': note.id!=SelectedNote.id}" (click)="selectCurrentNote(note)">
-            {{note.id}}
+        <div class="headerNote" *ngFor="let note of Notes.slice().reverse()" [ngClass]="{'headerNote-selected': note.id==SelectedNote.id, 'headerNote': note.id!=SelectedNote.id}" (click)="selectCurrentNote(note)">
+           
             <p class="text" data-placeholder="New Note">{{note.content }}</p>
+            <span class="headerTime">{{note.timeUpdated |date:'dd-MMM-yyyy HH:mm' }}</span>
+            
         </div>
     </div>
     <div fxFlex="100" class="note" fxFlex.xs="100">

@@ -14,6 +14,7 @@
 .searchBox{
     width: 85%;
     height: 100%;
+    padding-left: 40px;
 }
 .searchicon{
     color: #b5b1b1;

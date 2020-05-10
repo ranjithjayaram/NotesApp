@@ -16,7 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   declarations: [
     AppComponent,
     ActionsComponent,
-    NotesComponent
+    NotesComponent,
   ],
   imports: [
     BrowserModule,

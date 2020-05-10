@@ -47,3 +47,8 @@ input:focus, textarea:focus, select:focus{
     left: 30px;
     padding: 15px 0px 20px 20px;
  }
+ .headerTime{
+    position: relative;
+    bottom: 0px;
+    font-size: 12px;
+ }

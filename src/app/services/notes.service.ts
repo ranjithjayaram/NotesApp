@@ -39,6 +39,7 @@ public toggleobj= new Subject<boolean>();
     this.NotesObject.map(notes=>{
       if(notes.id== data.id){
         notes.content= data.content;
+        notes.timeUpdated= new Date();
       }
     })
   }
@@ -94,6 +95,7 @@ toggleService(){
   this.toggleobj.next(this.toggle);
 }
 search(text){
-  return ;
+  let array= this.NotesObject.filter(note=> note.content.indexOf(text) > -1);
+  this.Notes.next(array);
 }
 }

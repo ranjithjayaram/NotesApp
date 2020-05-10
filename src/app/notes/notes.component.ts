@@ -20,10 +20,10 @@ export class NotesComponent implements OnInit {
         this.Notes=[];
       }
       this.Notes = note;
-      this.notesService.selectedNoteObject.subscribe(note=>{
-        this.SelectedNote=note;
-        this.cdr.markForCheck();
-      })
+    })
+    this.notesService.selectedNoteObject.subscribe(note=>{
+      this.SelectedNote=note;
+      this.cdr.markForCheck();
     })
     this.notesService.currentNote.subscribe(note=>{
       this.currentNote= note;

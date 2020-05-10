@@ -20,6 +20,7 @@ export class ActionsComponent implements OnInit {
   }
   createNewNote(){
     if(this.currentNote.content){
+      this.currentNote.timeUpdated= new Date();
       this.notesService.saveNote(this.currentNote);
     }else{
       this.notesService.removeNote(this.currentNote);
@@ -33,7 +34,7 @@ export class ActionsComponent implements OnInit {
       verticalPosition: 'top',
       panelClass:'custom-class-save'
     });
-    
+    this.currentNote.timeUpdated= new Date();
     this.notesService.saveNote(this.currentNote);
   }
   
@@ -57,7 +58,7 @@ export class ActionsComponent implements OnInit {
   toggle(){
     this.notesService.toggleService();
   }
-  search(searchtext){
-    this.notesService.search(searchtext)
+  searchText(event){
+    this.notesService.search(event.target.value)
   }
 }
