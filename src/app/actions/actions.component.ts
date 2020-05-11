@@ -59,6 +59,6 @@ export class ActionsComponent implements OnInit {
     this.notesService.toggleService();
   }
   searchText(event){
-    this.notesService.search(event.target.value)
+    this.notesService.search(event.target.value.toLowerCase())
   }
 }

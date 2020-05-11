@@ -95,7 +95,14 @@ toggleService(){
   this.toggleobj.next(this.toggle);
 }
 search(text){
-  let array= this.NotesObject.filter(note=> note.content.indexOf(text) > -1);
+//  let array= this.NotesObject.filter(note=> note.content.toLowerCase().indexOf(text) > -1);
+  let array= this.NotesObject.filter(note=>{
+    if(note.content){
+      if(note.content.toLowerCase().indexOf(text) > -1){
+        return note;
+      }
+    }
+  });
   this.Notes.next(array);
 }
 }
