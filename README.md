@@ -1,6 +1,7 @@
 # NotesApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+The App is deployed on github pages and is available at : https://ranjithjayaram.github.io/NotesApp/
 
 ## Development server
 
